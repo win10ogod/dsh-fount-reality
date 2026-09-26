@@ -1,0 +1,41 @@
+{
+  "name": "dsh-fount-reality",
+  "version": "0.1.0",
+  "description": "Fount-inspired autonomous screen observer for DeepSeek Harness",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/win10ogod/dsh-fount-reality.git"
+  },
+  "homepage": "https://github.com/win10ogod/dsh-fount-reality#readme",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": ["lib", "scripts", "cordis.patch.yml", "README.md", "LICENSE"],
+  "license": "MIT",
+  "engines": { "node": ">=22.13.0" },
+  "keywords": ["deepseek-harness", "dsh", "dsh-plugin", "screen-capture", "autonomous-agent"],
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-llm": "0.1.7-rc.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4",
+    "@screen-capture/node": "1.1.0",
+    "node-notifier": "10.0.1",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-llm": "0.1.7-rc.2",
+    "@deepseek-ai/dsh-tools": "0.1.7-rc.2"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check lib/index.js && node --check lib/sensor.js && node --check lib/attention.js && node --test",
+    "smoke:capture": "node scripts/native-smoke.mjs"
+  }
+}

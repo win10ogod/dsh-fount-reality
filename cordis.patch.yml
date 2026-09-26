@@ -1,0 +1,5 @@
+- insert:
+    - id: fount-reality
+      name: 'dsh-fount-reality'
+      config:
+        enabled: false
