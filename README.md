@@ -1,6 +1,6 @@
 # dsh-fount-reality
 
-參考 [理華角色包](https://github.com/win10ogod/Rika) 的私有 Reality Channel，為 DeepSeek Harness 提供背景螢幕觀察與自主喚醒。針對 DSH `0.1.7-rc.2` 與 `0.2.0-rc.2` 開發。
+參考 [理華角色包](https://github.com/win10ogod/Rika) 的私有 Reality Channel，為 DeepSeek Harness 提供背景螢幕觀察與自主喚醒。針對 DSH `0.1.7-rc.2`、`0.2.0-rc.2` 與 `0.2.1-alpha.1` 開發。
 
 插件持續取樣畫面，但**取樣計時器不直接啟動 Agent loop**。它先以低 FPS 巡看；偵測到明顯變化後，短暫提高 FPS，確認新畫面連續穩定才喚醒獨立的背景 Agent。影片等持續動態畫面會在取樣上限後退回低 FPS，並進入明示的冷卻時間。背景 Agent 才會分析完整畫面、檢視其預設中可用的工具與記憶，只有決定有具體價值時才呼叫 `reality_notify` 發出桌面通知。日常內部分析留在獨立的持久會話，不插入原本的聊天回合。
 
